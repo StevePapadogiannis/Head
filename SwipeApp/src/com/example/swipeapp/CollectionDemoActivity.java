@@ -16,6 +16,9 @@
 
 package com.example.swipeapp;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
@@ -48,13 +51,20 @@ public class CollectionDemoActivity extends FragmentActivity {
      * The ViewPager that will display the object collection.
      */
     ViewPager mViewPager;
+    
+    private static ArrayList< HashMap< String, Object > > arrayList;
 
-    public void onCreate( Bundle savedInstanceState )
+    @SuppressWarnings("unchecked")
+	public void onCreate( Bundle savedInstanceState )
     {
     
     	super.onCreate( savedInstanceState );
     	
         setContentView( R.layout.activity_collection_demo );
+        
+        Intent intent = getIntent();
+        
+        arrayList = (ArrayList<HashMap<String, Object>>) intent.getSerializableExtra( "array" );
 
         // Create an adapter that when requested, will return a fragment representing an object in
         // the collection.
@@ -140,7 +150,7 @@ public class CollectionDemoActivity extends FragmentActivity {
             
         	Bundle args = new Bundle();
             
-        	args.putInt( DemoObjectFragment.ARG_OBJECT, i + 1 ); // Our object is just an integer :-P
+        	args.putInt( DemoObjectFragment.ARG_OBJECT, i); // Our object is just an integer :-P
             
         	fragment.setArguments( args );
             
@@ -153,7 +163,7 @@ public class CollectionDemoActivity extends FragmentActivity {
         {
         
         	// For this contrived example, we have a 100-object collection.
-            return 100;
+            return 2;
         
         }
 
@@ -180,12 +190,16 @@ public class CollectionDemoActivity extends FragmentActivity {
         {
         
         	View rootView = inflater.inflate( R.layout.news_item, container, false );
+        	
+        	Bundle args = getArguments();
+        	
+        	int position = args.getInt( ARG_OBJECT );
             
-        	( ( TextView ) rootView.findViewById( R.id.txtTitle ) ).setText( getString( R.string.title1 ) );
+        	( ( TextView ) rootView.findViewById( R.id.txtTitle ) ).setText( ( String ) arrayList.get( position ).get( "title" ) );
         	
-        	( ( TextView ) rootView.findViewById( R.id.txtDate ) ).setText( getString( R.string.date1 ) );
+        	( ( TextView ) rootView.findViewById( R.id.txtDate ) ).setText( ( String ) arrayList.get( position ).get( "date" ) );
         	
-        	( ( TextView ) rootView.findViewById( R.id.txtDescription ) ).setText( getString( R.string.description1 ) );
+        	( ( TextView ) rootView.findViewById( R.id.txtDescription ) ).setText( ( String ) arrayList.get( position ).get( "desc" ) );
         	
         	( ( ImageView ) rootView.findViewById( R.id.txtImage ) ).setImageDrawable( getResources().getDrawable( R.drawable.image1 ) );
         	

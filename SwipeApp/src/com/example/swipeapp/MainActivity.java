@@ -1,5 +1,8 @@
 package com.example.swipeapp;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -183,7 +186,31 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             	{
                 
             		Intent intent = new Intent( getActivity(), CollectionDemoActivity.class );
+            		
+            		ArrayList< HashMap< String, Object > > list = new ArrayList< HashMap< String, Object > >();
                             
+            		HashMap< String, Object > map1 = new HashMap<String, Object>();
+            		
+            		map1.put( "title", "tsifsa1" );
+            		
+            		map1.put( "date", "tsifsa2" );
+            		
+            		map1.put( "desc", "tsifsa3" );
+            		
+            		list.add( map1 );
+            		
+            		HashMap<String, Object> map2 = new HashMap<String, Object>();
+            		
+            		map2.put( "title", "tsifsa4" );
+            		
+            		map2.put( "date", "tsifsa5" );
+            		
+            		map2.put( "desc", "tsifsa6" );
+            		
+            		list.add( map2 );
+            		
+            		intent.putExtra( "array", list );
+            		
             		startActivity(intent);
                    
             	}
