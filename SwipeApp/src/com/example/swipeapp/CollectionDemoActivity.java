@@ -32,7 +32,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class CollectionDemoActivity extends FragmentActivity {
+public class CollectionDemoActivity extends FragmentActivity
+{
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide fragments representing
@@ -48,27 +49,32 @@ public class CollectionDemoActivity extends FragmentActivity {
      */
     ViewPager mViewPager;
 
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_collection_demo);
+    public void onCreate(Bundle savedInstanceState)
+    {
+    
+    	super.onCreate( savedInstanceState );
+    	
+        setContentView( R.layout.activity_collection_demo );
 
         // Create an adapter that when requested, will return a fragment representing an object in
         // the collection.
         // 
         // ViewPager and its adapters use support library fragments, so we must use
         // getSupportFragmentManager.
-        mDemoCollectionPagerAdapter = new DemoCollectionPagerAdapter(getSupportFragmentManager());
+        mDemoCollectionPagerAdapter = new DemoCollectionPagerAdapter( getSupportFragmentManager() );
 
         // Set up action bar.
         final ActionBar actionBar = getActionBar();
 
         // Specify that the Home button should show an "Up" caret, indicating that touching the
         // button will take the user one step up in the application's hierarchy.
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled( true );
 
         // Set up the ViewPager, attaching the adapter.
-        mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(mDemoCollectionPagerAdapter);
+        mViewPager = ( ViewPager ) findViewById( R.id.pager );
+        
+        mViewPager.setAdapter( mDemoCollectionPagerAdapter );
+    
     }
 
     @Override
