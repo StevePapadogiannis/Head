@@ -30,6 +30,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;   
 
 public class CollectionDemoActivity extends FragmentActivity {
@@ -178,11 +179,15 @@ public class CollectionDemoActivity extends FragmentActivity {
         public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState )
         {
         
-        	View rootView = inflater.inflate( R.layout.fragment_collection_object, container, false );
+        	View rootView = inflater.inflate( R.layout.news_item, container, false );
             
-        	Bundle args = getArguments();
-            
-        	( ( TextView ) rootView.findViewById( android.R.id.text1 ) ).setText( Integer.toString( args.getInt( ARG_OBJECT ) ) );
+        	( ( TextView ) rootView.findViewById( R.id.txtTitle ) ).setText( getString( R.string.title1 ) );
+        	
+        	( ( TextView ) rootView.findViewById( R.id.txtDate ) ).setText( getString( R.string.date1 ) );
+        	
+        	( ( TextView ) rootView.findViewById( R.id.txtDescription ) ).setText( getString( R.string.description1 ) );
+        	
+        	( ( ImageView ) rootView.findViewById( R.id.txtImage ) ).setImageDrawable( getResources().getDrawable( R.drawable.image1 ) );
         	
             return rootView;
        
