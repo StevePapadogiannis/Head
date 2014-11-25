@@ -18,15 +18,15 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 {
 
     /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the
-     * three primary sections of the app. We use a {@link android.support.v4.app.FragmentPagerAdapter}
+     * The PagerAdapter that will provide fragments for each of the
+     * three primary sections of the app. We use a FragmentPagerAdapter
      * derivative, which will keep every loaded fragment in memory. If this becomes too memory
-     * intensive, it may be best to switch to a {@link android.support.v4.app.FragmentStatePagerAdapter}.
+     * intensive, it may be best to switch to a FragmentStatePagerAdapter.
      */
     AppSectionsPagerAdapter mAppSectionsPagerAdapter;
 
     /**
-     * The {@link ViewPager} that will display the three primary sections of the app, one at a
+     * The ViewPager that will display the three primary sections of the app, one at a
      * time.
      */
     ViewPager mViewPager;
@@ -103,7 +103,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     public void onTabReselected( ActionBar.Tab tab, FragmentTransaction fragmentTransaction ){ }
 
     /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to one of the primary
+     * A FragmentPagerAdapter that returns a fragment corresponding to one of the primary
      * sections of the app.
      */
     public static class AppSectionsPagerAdapter extends FragmentPagerAdapter
